@@ -16,16 +16,17 @@ traitAtIndex = ["background", "type", "body", "neck", "mouth", "hat", "eyes"]
 hatsToDrawSecond = ["f", "W", "a"]
 mouthsToDrawLast = ["g", "i", "a"]
 bodiesToDrawLast = ["g"]
+bodiesToDrawAfterShadow = ["p", "q", "r"]
 typesOfCaps = ["N", "O", "P", "Q", "R", "S"]
 
 def main():
     traitsDict = buildTraitsDict()
-    random.seed(53333)
+    random.seed(53337)
 
     #makeNewImage(5000, "gnJ__W_")
-    makeNewImage(0, "gv____i")
+    # makeNewImage(0, "gs_____")
     makeNewImage(0, "bw____i")
-    makeNewImage(0, "pz____i")
+    # makeNewImage(0, "pz____i")
 
     dogeId = 1
     dupesRetry = 0
@@ -61,7 +62,7 @@ def main():
         dupesRetry = 0
     
 def isDrawShadow(traits):
-    if traits[2] == "k":
+    if traits[2] in ["k", "o"]:
         return False
     return True
 
@@ -77,6 +78,8 @@ def makeNewImage(iter, traits):
         drawBody(im, traits[2], traits[1], traits[0])
     if (isDrawShadow(traits)):
         drawShadow(im)
+    if (traits[2] in bodiesToDrawAfterShadow):
+        drawBody(im, traits[2], traits[1], traits[0])
     if (traits[4] not in mouthsToDrawLast):
         drawMouth(im, traits[4], traits[1], traits[0])
     if (traits[5] in hatsToDrawSecond):
@@ -146,52 +149,52 @@ def makeTraitsRoll(traitsDict):
         traitStr = traitStr + roll
     # Hack to undo 9 out of 10 full trait rolls
     #print("TraitStr: " + traitStr)
-    if not "_" in traitStr:
-        eightyPercentChance = random.randrange(100)
-        if eightyPercentChance >= 80:
-            # Remove two traits
-            slots = [2, 3, 4, 5, 6]
-            undoSlot1 = random.choice(slots)
-            slots.remove(undoSlot1)
-            traitsDict[traitList[undoSlot1]].append(traitStr[undoSlot1])
-            traitStr = traitStr[0:undoSlot1] + "_" + traitStr[undoSlot1+1:numTraits]
-            undoSlot2 = random.choice(slots)
-            slots.remove(undoSlot2)
-            traitsDict[traitList[undoSlot2]].append(traitStr[undoSlot2])
-            traitStr = traitStr[0:undoSlot2] + "_" + traitStr[undoSlot2+1:numTraits]
+    # if not "_" in traitStr:
+    #     eightyPercentChance = random.randrange(100)
+    #     if eightyPercentChance >= 80:
+    #         # Remove two traits
+    #         slots = [2, 3, 4, 5, 6]
+    #         undoSlot1 = random.choice(slots)
+    #         slots.remove(undoSlot1)
+    #         traitsDict[traitList[undoSlot1]].append(traitStr[undoSlot1])
+    #         traitStr = traitStr[0:undoSlot1] + "_" + traitStr[undoSlot1+1:numTraits]
+    #         undoSlot2 = random.choice(slots)
+    #         slots.remove(undoSlot2)
+    #         traitsDict[traitList[undoSlot2]].append(traitStr[undoSlot2])
+    #         traitStr = traitStr[0:undoSlot2] + "_" + traitStr[undoSlot2+1:numTraits]
     
     #print("TraitStr: " + traitStr)
 
-    # Devil's no floppy ear
-    if traitStr[1] == "v" and TRAIT_ENCODINGS["hat"][traitStr[5]] == "FloppyEar":
-        traitsDict["hat"].append(traitStr[5])
-        traitStr = traitStr[0:5] + "_" + traitStr[6:]
-    # Skeleton no floppy ear
-    if traitStr[1] == "s" and TRAIT_ENCODINGS["hat"][traitStr[5]] == "FloppyEar":
-        traitsDict["hat"].append(traitStr[5])
-        traitStr = traitStr[0:5] + "_" + traitStr[6:]
-    # Ghosts no floppy ear
-    if traitStr[1] == "g" and TRAIT_ENCODINGS["hat"][traitStr[5]] == "FloppyEar":
-        traitsDict["hat"].append(traitStr[5])
-        traitStr = traitStr[0:5] + "_" + traitStr[6:]
-    # Ghosts not fat
-    if traitStr[1] == "g" and TRAIT_ENCODINGS["body"][traitStr[2]] == "Fat":
-        traitStr = traitStr[0:2] + "_" + traitStr[3:]
-    # Ghosts no rainbow shirt
-    if traitStr[1] == "g" and TRAIT_ENCODINGS["body"][traitStr[2]] == "RainbowShirt":
-        traitStr = traitStr[0:2] + "_" + traitStr[3:]
-    # Ghosts no wink
-    if traitStr[1] == "g" and TRAIT_ENCODINGS["eyes"][traitStr[6]] == "Wink":
-        traitStr = traitStr[0:6] + "_"
-    # Ghosts no happy eyes
-    if traitStr[1] == "g" and TRAIT_ENCODINGS["eyes"][traitStr[6]] == "Happy":
-        traitStr = traitStr[0:6] + "_"
-    # No laughing eyes with caps
-    if traitStr[6] == "g" and traitStr[5] in typesOfCaps:
-        traitStr = traitStr[0:6] + "_"
-    # No tongue out for skeletons
-    if traitStr[4] == "q" and traitStr[1] == "s":
-        traitStr = traitStr[0:4] + "_" + traitStr[5:]
+    # # Devil's no floppy ear
+    # if traitStr[1] == "v" and TRAIT_ENCODINGS["hat"][traitStr[5]] == "FloppyEar":
+    #     traitsDict["hat"].append(traitStr[5])
+    #     traitStr = traitStr[0:5] + "_" + traitStr[6:]
+    # # Skeleton no floppy ear
+    # if traitStr[1] == "s" and TRAIT_ENCODINGS["hat"][traitStr[5]] == "FloppyEar":
+    #     traitsDict["hat"].append(traitStr[5])
+    #     traitStr = traitStr[0:5] + "_" + traitStr[6:]
+    # # Ghosts no floppy ear
+    # if traitStr[1] == "g" and TRAIT_ENCODINGS["hat"][traitStr[5]] == "FloppyEar":
+    #     traitsDict["hat"].append(traitStr[5])
+    #     traitStr = traitStr[0:5] + "_" + traitStr[6:]
+    # # Ghosts not fat
+    # if traitStr[1] == "g" and TRAIT_ENCODINGS["body"][traitStr[2]] == "Fat":
+    #     traitStr = traitStr[0:2] + "_" + traitStr[3:]
+    # # Ghosts no rainbow shirt
+    # if traitStr[1] == "g" and TRAIT_ENCODINGS["body"][traitStr[2]] == "RainbowShirt":
+    #     traitStr = traitStr[0:2] + "_" + traitStr[3:]
+    # # Ghosts no wink
+    # if traitStr[1] == "g" and TRAIT_ENCODINGS["eyes"][traitStr[6]] == "Wink":
+    #     traitStr = traitStr[0:6] + "_"
+    # # Ghosts no happy eyes
+    # if traitStr[1] == "g" and TRAIT_ENCODINGS["eyes"][traitStr[6]] == "Happy":
+    #     traitStr = traitStr[0:6] + "_"
+    # # No laughing eyes with caps
+    # if traitStr[6] == "g" and traitStr[5] in typesOfCaps:
+    #     traitStr = traitStr[0:6] + "_"
+    # # No tongue out for skeletons
+    # if traitStr[4] == "q" and traitStr[1] == "s":
+    #     traitStr = traitStr[0:4] + "_" + traitStr[5:]
     return traitStr
 
 # Entry point

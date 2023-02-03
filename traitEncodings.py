@@ -49,9 +49,9 @@ TRAIT_ENCODINGS = {
         "m": "Gold",
         "n": "Sand",
         "o": "Cone",
-        "p": "Tutu",
-        "q": "Referee",
-        "r": "ConeOfShame",
+        "p": "Suited",
+        "q": "Garbage",
+        "r": "Mug",
         "s": "BitcoinShirt",
         "t": "MuddyPaws",
         "u": "CheckeredShirt",
@@ -127,6 +127,7 @@ TRAIT_ENCODINGS = {
         "v": "Vape",
         "w": "Twig",
         "x": "Smile",
+        "z": "Cigar",
         "_": "None"
     },
     "hat": {
@@ -213,6 +214,7 @@ TRAIT_ENCODINGS = {
         "v": "ThugLyfe",
         "w": "Glasses",
         "x": "Happy",
+        "y": "3dGlasses",
         "_": "None"
     }
 }
