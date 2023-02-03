@@ -7,6 +7,7 @@ from draw.drawNeck import drawNeck
 from draw.drawHat import drawHat
 from draw.drawEyes import drawEyes
 from draw.drawMouth import drawMouth
+from draw.drawShadow import drawShadow
 from traitCount import traitCountDict
 from traitEncodings import TRAIT_ENCODINGS
 
@@ -14,6 +15,7 @@ numTraits = 7
 traitAtIndex = ["background", "type", "body", "neck", "mouth", "hat", "eyes"]
 hatsToDrawSecond = ["f", "W", "a"]
 mouthsToDrawLast = ["g", "i", "a"]
+bodiesToDrawLast = ["g"]
 typesOfCaps = ["N", "O", "P", "Q", "R", "S"]
 
 def main():
@@ -21,8 +23,9 @@ def main():
     random.seed(53333)
 
     #makeNewImage(5000, "gnJ__W_")
-    makeNewImage(0, "gn_____")
-    makeNewImage(0, "blY___k")
+    makeNewImage(0, "gv____i")
+    makeNewImage(0, "bw____i")
+    makeNewImage(0, "pz____i")
 
     dogeId = 1
     dupesRetry = 0
@@ -56,16 +59,24 @@ def main():
                     exit(-1)
             dupesRetry = dupesRetry + 1
         dupesRetry = 0
+    
+def isDrawShadow(traits):
+    if traits[2] == "k":
+        return False
+    return True
 
 def makeNewImage(iter, traits):
 
     # Draw the tiny version
-    im = Image.new('RGBA', (24, 24))
+    im = Image.new('RGBA', (32, 32))
     #print("traits: " + str(traits))
     drawSolanaBackground(im, traits[0])
     drawType(im, traits[1], traits[0])
     #drawNeck(im, traits[2])
-    drawBody(im, traits[2], traits[1], traits[0])
+    if (traits[2] not in bodiesToDrawLast):
+        drawBody(im, traits[2], traits[1], traits[0])
+    if (isDrawShadow(traits)):
+        drawShadow(im)
     if (traits[4] not in mouthsToDrawLast):
         drawMouth(im, traits[4], traits[1], traits[0])
     if (traits[5] in hatsToDrawSecond):
@@ -76,13 +87,15 @@ def makeNewImage(iter, traits):
         drawEyes(im, traits[6], traits[1])
     if (traits[4] in mouthsToDrawLast):
         drawMouth(im, traits[4], traits[1], traits[0])
+    if (traits[2] in bodiesToDrawLast):
+        drawBody(im, traits[2], traits[1], traits[0])
     #smallFileName = "images/" + str(iter) + "." + l1 + l2 + l3 + ".png"
     #im.save(smallFileName, "PNG")
     
     # Make a larger version which looks nicer
-    im2 = im.resize((240, 240), resample=Image.NEAREST)
+    im2 = im.resize((256, 256), resample=Image.NEAREST)
     #im2.show()
-    largeFileName = "images\\" + str(iter) + "." + traits + ".240.png"
+    largeFileName = "images\\" + str(iter) + "." + traits + ".256.png"
     im2.save(largeFileName, "PNG")
 
 def buildTraitsDict():

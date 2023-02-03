@@ -6,7 +6,7 @@ from draw.drawNecklace import drawNecklace
 from draw.drawScarf import drawScarf
 
 def drawNeck(im, trait):
-    imNew = Image.new('RGBA', (24, 24), (0, 0, 0, 0))
+    imNew = Image.new('RGBA', (32, 32), (0, 0, 0, 0))
 
     decodedType = TRAIT_ENCODINGS["neck"][trait]
     if decodedType == "BlueCollar":

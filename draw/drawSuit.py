@@ -3,7 +3,7 @@ from colors import colorsDict
 from traitEncodings import TRAIT_ENCODINGS
 
 def drawSuit(im, primaryColor, primaryColorShade, tieColor):
-    imNew = Image.new('RGBA', (24, 24), (0, 0, 0, 0))
+    imNew = Image.new('RGBA', (32, 32), (0, 0, 0, 0))
 
     imNew.putpixel((6, 19), colorsDict["black"])
     imNew.putpixel((7, 19), primaryColor)

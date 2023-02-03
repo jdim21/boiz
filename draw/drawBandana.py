@@ -3,7 +3,7 @@ from colors import colorsDict, backgroundLookup
 from traitEncodings import TRAIT_ENCODINGS
 
 def drawBandana(im, color, backgroundColor):
-    imNew = Image.new('RGBA', (24, 24), (0, 0, 0, 0))
+    imNew = Image.new('RGBA', (32, 32), (0, 0, 0, 0))
 
     if color == "blue":
         imNew.putpixel((5, 4), backgroundLookup[backgroundColor])

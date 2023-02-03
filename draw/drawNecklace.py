@@ -3,7 +3,7 @@ from colors import colorsDict
 from traitEncodings import TRAIT_ENCODINGS
 
 def drawNecklace(im, gem):
-    imNew = Image.new('RGBA', (24, 24), (0, 0, 0, 0))
+    imNew = Image.new('RGBA', (32, 32), (0, 0, 0, 0))
 
     imNew.putpixel((8, 19), colorsDict["necklaceShade"])
 

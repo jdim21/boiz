@@ -3,7 +3,7 @@ from colors import colorsDict
 from traitEncodings import TRAIT_ENCODINGS
 
 def drawScarf(im, primaryColor, primaryColorShade):
-    imNew = Image.new('RGBA', (24, 24), (0, 0, 0, 0))
+    imNew = Image.new('RGBA', (32, 32), (0, 0, 0, 0))
 
     imNew.putpixel((2, 17), colorsDict["black"])
     imNew.putpixel((3, 17), colorsDict["black"])

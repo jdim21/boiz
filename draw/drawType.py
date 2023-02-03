@@ -4,20 +4,163 @@ from traitEncodings import TRAIT_ENCODINGS
 from draw.drawBaseType import drawBaseType
 
 def drawSolanaBackground(im, backgroundColor):
-    for i in range(24):
-        for j in range(24):
+    for i in range(32):
+        for j in range(32):
             im.putpixel((i, j), backgroundLookup[backgroundColor])
 
 def drawType(im, trait, backgroundColor):
-    imNew = Image.new('RGBA', (24, 24), (0, 0, 0, 0))
+    imNew = Image.new('RGBA', (32, 32), (0, 0, 0, 0))
+
 
     decodedType = TRAIT_ENCODINGS["type"][trait]
+    if decodedType == "Green":
+        primaryColor = colorsDict["blobGreen"]
+        colorShade = colorsDict["blobGreenShade"]
+        colorLight = colorsDict["blobGreenLight"]
+        colorBrow = colorsDict["blobGreen"]
+        drawBaseType(im, primaryColor, colorShade, colorLight, colorBrow)
+    if decodedType == "Rose":
+        primaryColor = colorsDict["blobRose"]
+        colorShade = colorsDict["blobRoseShade"]
+        colorLight = colorsDict["blobRoseLight"]
+        colorBrow = colorsDict["blobRose"]
+        drawBaseType(im, primaryColor, colorShade, colorLight, colorBrow)
+    if decodedType == "Yellow":
+        primaryColor = colorsDict["blobYellow"]
+        colorShade = colorsDict["blobYellowShade"]
+        colorLight = colorsDict["blobYellowLight"]
+        colorBrow = colorsDict["blobYellow"]
+        drawBaseType(im, primaryColor, colorShade, colorLight, colorBrow)
+    if decodedType == "Blue":
+        primaryColor = colorsDict["blobBlue"]
+        colorShade = colorsDict["blobBlueShade"]
+        colorLight = colorsDict["blobBlueLight"]
+        colorBrow = colorsDict["blobBlue"]
+        drawBaseType(im, primaryColor, colorShade, colorLight, colorBrow)
+    if decodedType == "Purple":
+        primaryColor = colorsDict["blobPurple"]
+        colorShade = colorsDict["blobPurpleShade"]
+        colorLight = colorsDict["blobPurpleLight"]
+        colorBrow = colorsDict["blobPurple"]
+        drawBaseType(im, primaryColor, colorShade, colorLight, colorBrow)
+    if decodedType == "Orange":
+        primaryColor = colorsDict["blobOrange"]
+        colorShade = colorsDict["blobOrangeShade"]
+        colorLight = colorsDict["blobOrangeLight"]
+        colorBrow = colorsDict["blobOrange"]
+        drawBaseType(im, primaryColor, colorShade, colorLight, colorBrow)
+    if decodedType == "Orange":
+        primaryColor = colorsDict["blobOrange"]
+        colorShade = colorsDict["blobOrangeShade"]
+        colorLight = colorsDict["blobOrangeLight"]
+        colorBrow = colorsDict["blobOrange"]
+        drawBaseType(im, primaryColor, colorShade, colorLight, colorBrow)
     if decodedType == "Normal":
         primaryColor = "typeNormal"
         colorShade = "typeNormalShade"
         colorLight = "typeNormalLight"
         colorBrow = "typeNormalBrows"
         drawBaseType(im, primaryColor, colorShade, colorLight, colorBrow)
+    if decodedType == "Rainbow":
+        primaryColor = colorsDict["typeDevil"]
+        colorShade = colorsDict["typeDevilShade"]
+        colorLight = colorsDict["typeDevilLight"]
+        colorBrow = colorsDict["typeDevilShade"]
+        drawBaseType(im, primaryColor, colorShade, colorLight, colorBrow)
+        imNew.putpixel((15, 11), colorsDict["blobYellowShade"])
+        imNew.putpixel((16, 11), colorsDict["blobYellowShade"])
+        imNew.putpixel((17, 11), colorsDict["blobYellowShade"])
+
+        imNew.putpixel((15, 12), colorsDict["blobYellow"])
+        imNew.putpixel((16, 12), colorsDict["blobYellow"])
+        imNew.putpixel((17, 12), colorsDict["blobYellow"])
+        imNew.putpixel((18, 12), colorsDict["blobYellowShade"])
+        imNew.putpixel((19, 12), colorsDict["blobGreenShade"])
+
+        imNew.putpixel((15, 13), colorsDict["blobYellow"])
+        imNew.putpixel((16, 13), colorsDict["blobYellowLight"])
+        imNew.putpixel((17, 13), colorsDict["blobYellowLight"])
+        imNew.putpixel((18, 13), colorsDict["blobYellow"])
+        imNew.putpixel((19, 13), colorsDict["blobGreen"])
+        imNew.putpixel((20, 13), colorsDict["blobGreenShade"])
+
+        imNew.putpixel((14, 14), colorsDict["blobYellow"])
+        imNew.putpixel((15, 14), colorsDict["blobYellowLight"])
+        imNew.putpixel((16, 14), colorsDict["blobYellowLight"])
+        imNew.putpixel((17, 14), colorsDict["blobYellowLight"])
+        imNew.putpixel((18, 14), colorsDict["blobGreenLight"])
+        imNew.putpixel((19, 14), colorsDict["blobGreen"])
+        imNew.putpixel((20, 14), colorsDict["blobGreen"])
+        imNew.putpixel((21, 14), colorsDict["blobGreenShade"])
+
+        imNew.putpixel((14, 15), colorsDict["blobYellow"])
+        imNew.putpixel((15, 15), colorsDict["blobYellowLight"])
+        imNew.putpixel((16, 15), colorsDict["blobYellowLight"])
+        imNew.putpixel((17, 15), colorsDict["blobGreenLight"])
+        imNew.putpixel((20, 15), colorsDict["blobGreen"])
+        imNew.putpixel((21, 15), colorsDict["blobBlueShade"])
+
+        imNew.putpixel((14, 16), colorsDict["blobYellow"])
+        imNew.putpixel((15, 16), colorsDict["blobYellow"])
+        imNew.putpixel((16, 16), colorsDict["blobYellowLight"])
+        imNew.putpixel((17, 16), colorsDict["blobGreenLight"])
+        imNew.putpixel((20, 16), colorsDict["blobBlueLight"])
+        imNew.putpixel((21, 16), colorsDict["blobBlueLight"])
+        imNew.putpixel((22, 16), colorsDict["blobBlueShade"])
+
+        imNew.putpixel((14, 17), colorsDict["blobYellow"])
+        imNew.putpixel((15, 17), colorsDict["blobYellow"])
+        imNew.putpixel((16, 17), colorsDict["blobGreen"])
+        imNew.putpixel((17, 17), colorsDict["blobGreen"])
+        imNew.putpixel((20, 17), colorsDict["blobBlueLight"])
+        imNew.putpixel((21, 17), colorsDict["blobBlueLight"])
+        imNew.putpixel((22, 17), colorsDict["blobBlueShade"])
+
+        imNew.putpixel((13, 18), colorsDict["blobYellow"])
+        imNew.putpixel((14, 18), colorsDict["blobYellow"])
+        imNew.putpixel((15, 18), colorsDict["blobGreen"])
+        imNew.putpixel((16, 18), colorsDict["blobGreen"])
+        imNew.putpixel((17, 18), colorsDict["blobGreen"])
+        imNew.putpixel((18, 18), colorsDict["blobBlueLight"])
+        imNew.putpixel((21, 18), colorsDict["blobPurple"])
+        imNew.putpixel((22, 18), colorsDict["blobPurpleShade"])
+
+        imNew.putpixel((10, 19), colorsDict["blobYellowShade"])
+        imNew.putpixel((11, 19), colorsDict["blobYellow"])
+        imNew.putpixel((12, 19), colorsDict["blobYellow"])
+        imNew.putpixel((13, 19), colorsDict["blobYellow"])
+        imNew.putpixel((14, 19), colorsDict["blobGreen"])
+        imNew.putpixel((17, 19), colorsDict["blobBlueLight"])
+        imNew.putpixel((18, 19), colorsDict["blobBlueLight"])
+        imNew.putpixel((19, 19), colorsDict["blobBlueLight"])
+        imNew.putpixel((20, 19), colorsDict["blobPurple"])
+        imNew.putpixel((21, 19), colorsDict["blobPurpleShade"])
+        imNew.putpixel((22, 19), colorsDict["blobPurpleShade"])
+
+        imNew.putpixel((10, 20), colorsDict["blobYellowShade"])
+        imNew.putpixel((11, 20), colorsDict["blobYellowShade"])
+        imNew.putpixel((12, 20), colorsDict["blobYellow"])
+        imNew.putpixel((13, 20), colorsDict["blobGreen"])
+        imNew.putpixel((14, 20), colorsDict["blobGreen"])
+        imNew.putpixel((15, 20), colorsDict["blobGreen"])
+        imNew.putpixel((16, 20), colorsDict["blobGreen"])
+        imNew.putpixel((17, 20), colorsDict["blobBlueLight"])
+        imNew.putpixel((18, 20), colorsDict["blobBlueLight"])
+        imNew.putpixel((19, 20), colorsDict["blobPurple"])
+        imNew.putpixel((20, 20), colorsDict["blobPurpleShade"])
+        imNew.putpixel((21, 20), colorsDict["blobPurpleShade"])
+
+        imNew.putpixel((11, 21), colorsDict["blobYellowShade"])
+        imNew.putpixel((12, 21), colorsDict["blobYellowShade"])
+        imNew.putpixel((13, 21), colorsDict["blobGreenShade"])
+        imNew.putpixel((14, 21), colorsDict["blobGreenShade"])
+        imNew.putpixel((15, 21), colorsDict["blobGreenShade"])
+        imNew.putpixel((16, 21), colorsDict["blobGreenShade"])
+        imNew.putpixel((17, 21), colorsDict["blobBlueShade"])
+        imNew.putpixel((18, 21), colorsDict["blobBlueShade"])
+        imNew.putpixel((19, 21), colorsDict["blobBlueShade"])
+        imNew.putpixel((20, 21), colorsDict["blobPurpleShade"])
+
     if decodedType == "Solana":
         primaryColor = "typeNormal"
         colorShade = "typeNormalShade"
@@ -190,16 +333,22 @@ def drawType(im, trait, backgroundColor):
         colorBrow = "typeDarkBrownBrows"
         drawBaseType(im, primaryColor, colorShade, colorLight, colorBrow)
     elif decodedType == "Black":
-        primaryColor = "typeBlack"
-        colorShade = "typeBlackShade"
-        colorLight = "typeBlackLight"
-        colorBrow = "typeBlackBrows"
+        primaryColor = colorsDict["typeBlack"]
+        colorShade = colorsDict["typeBlackShade"]
+        colorLight = colorsDict["typeBlackLight"]
+        colorBrow = colorsDict["typeBlackBrows"]
         drawBaseType(im, primaryColor, colorShade, colorLight, colorBrow)
     elif decodedType == "Ghost":
-        primaryColor = "typeGhost"
-        colorShade = "typeGhostShade"
-        colorLight = "typeGhostLight"
-        colorBrow = "typeGhostBrows"
+        primaryColor = colorsDict["typeGhost"]
+        colorShade = colorsDict["typeGhostShade"]
+        colorLight = colorsDict["typeGhostLight"]
+        colorBrow = colorsDict["typeGhostBrows"]
+        drawBaseType(im, primaryColor, colorShade, colorLight, colorBrow, True)
+    elif decodedType == "Clear":
+        primaryColor = colorsDict["blobClear"]
+        colorShade = colorsDict["blobClearShade"]
+        colorLight = colorsDict["blobClearLight"]
+        colorBrow = colorsDict["blobClearShade"]
         drawBaseType(im, primaryColor, colorShade, colorLight, colorBrow, True)
     elif decodedType == "Skeleton":
         primaryColor = "typeSkeleton"
@@ -334,123 +483,163 @@ def drawType(im, trait, backgroundColor):
         imNew.putpixel((11, 22), colorsDict["typeSkeletonLight"])
         imNew.putpixel((13, 22), colorsDict["typeSkeletonLight"])
     elif decodedType == "Alien":
-        primaryColor = "typeAlien"
-        colorShade = "typeAlienShade"
-        colorLight = "typeAlienLight"
-        colorBrow = "typeAlienBrows"
+        primaryColor = colorsDict["typeAlien"]
+        colorShade = colorsDict["typeAlienShade"]
+        colorLight = colorsDict["typeAlienLight"]
+        colorBrow = colorsDict["typeAlienBrows"]
         drawBaseType(im, primaryColor, colorShade, colorLight, colorBrow)
-        imNew.putpixel((8, 12), colorsDict["typeAlienEyes2"])
-        imNew.putpixel((9, 12), colorsDict["black"])
-        imNew.putpixel((14, 12), colorsDict["typeAlienEyes2"])
-        imNew.putpixel((15, 12), colorsDict["black"])
+        imNew.putpixel((12, 15), colorsDict["typeAlienEyes2"])
+        imNew.putpixel((13, 15), colorsDict["black"])
+        imNew.putpixel((18, 15), colorsDict["typeAlienEyes2"])
+        imNew.putpixel((19, 15), colorsDict["black"])
 
-        imNew.putpixel((8, 13), colorsDict["black"])
-        imNew.putpixel((9, 13), colorsDict["typeAlienEyes1"])
-        imNew.putpixel((14, 13), colorsDict["black"])
-        imNew.putpixel((15, 13), colorsDict["typeAlienEyes1"])
+        imNew.putpixel((12, 16), colorsDict["black"])
+        imNew.putpixel((13, 16), colorsDict["typeAlienEyes1"])
+        imNew.putpixel((18, 16), colorsDict["black"])
+        imNew.putpixel((19, 16), colorsDict["typeAlienEyes1"])
+
+        imNew.putpixel((12, 17), colorsDict["typeAlien"])
+        imNew.putpixel((13, 17), colorsDict["typeAlien"])
+        imNew.putpixel((18, 17), colorsDict["typeAlien"])
+        imNew.putpixel((19, 17), colorsDict["typeAlien"])
+
+        imNew.putpixel((11, 18), colorsDict["typeAlienBrows2"])
+        imNew.putpixel((12, 18), colorsDict["typeAlienBrows2"])
+        imNew.putpixel((19, 18), colorsDict["typeAlienBrows2"])
+        imNew.putpixel((20, 18), colorsDict["typeAlienBrows2"])
     elif decodedType == "Zombie":
-        primaryColor = "typeZombie"
-        colorShade = "typeZombieShade"
-        colorLight = "typeZombieLight"
-        colorBrow = "typeZombieBrows"
+        primaryColor = colorsDict["typeZombie"]
+        colorShade = colorsDict["typeZombieShade"]
+        colorLight = colorsDict["typeZombieLight"]
+        colorBrow = colorsDict["typeZombieBrows"]
         drawBaseType(im, primaryColor, colorShade, colorLight, colorBrow)
 
-        imNew.putpixel((10, 9), colorsDict["typeZombieMarks"])
-        imNew.putpixel((13, 9), colorsDict["typeZombieMarks"])
+        # imNew.putpixel((10, 9), colorsDict["typeZombieMarks"])
+        # imNew.putpixel((13, 9), colorsDict["typeZombieMarks"])
+        imNew.putpixel((11, 18), colorsDict["typeZombieBrows"])
+        imNew.putpixel((12, 18), colorsDict["typeZombieBrows"])
+        imNew.putpixel((19, 18), colorsDict["typeZombieBrows"])
+        imNew.putpixel((20, 18), colorsDict["typeZombieBrows"])
 
-        imNew.putpixel((8, 12), colorsDict["typeZombieEyes"])
-        imNew.putpixel((14, 12), colorsDict["typeZombieEyes"])
+        imNew.putpixel((12, 15), colorsDict["typeZombieEyes"])
+        imNew.putpixel((18, 15), colorsDict["typeZombieEyes"])
 
-        imNew.putpixel((9, 21), colorsDict["typeZombieMarks"])
+        imNew.putpixel((12, 20), colorsDict["typeZombieMarks"])
 
-        imNew.putpixel((6, 22), colorsDict["typeZombieMarks"])
+        imNew.putpixel((18, 19), colorsDict["typeZombieMarks"])
 
     elif decodedType == "Devil":
-        primaryColor = "typeDevil"
-        colorShade = "typeDevilShade"
-        colorLight = "typeDevilLight"
-        colorBrow = "typeDevilBrows"
+        primaryColor = colorsDict["typeDevil"]
+        colorShade = colorsDict["typeDevilShade"]
+        colorLight = colorsDict["typeDevilLight"]
+        colorBrow = colorsDict["typeDevilShade"]
         drawBaseType(im, primaryColor, colorShade, colorLight, colorBrow)
+        imNew.putpixel((11, 18), colorsDict["typeDevilBlush"])
+        imNew.putpixel((12, 18), colorsDict["typeDevilBlush"])
+        imNew.putpixel((19, 18), colorsDict["typeDevilBlush"])
+        imNew.putpixel((20, 18), colorsDict["typeDevilBlush"])
 
-        imNew.putpixel((5, 4), colorsDict["black"])
-        imNew.putpixel((6, 4), colorsDict["black"])
-        imNew.putpixel((17, 4), colorsDict["black"])
-        imNew.putpixel((18, 4), colorsDict["black"])
+        # imNew.putpixel((5, 4), colorsDict["black"])
+        # imNew.putpixel((6, 4), colorsDict["black"])
+        # imNew.putpixel((17, 4), colorsDict["black"])
+        # imNew.putpixel((18, 4), colorsDict["black"])
 
-        imNew.putpixel((4, 5), colorsDict["black"])
-        imNew.putpixel((5, 5), colorsDict["typeDevilHorns"])
-        imNew.putpixel((6, 5), colorsDict["black"])
-        imNew.putpixel((17, 5), colorsDict["black"])
-        imNew.putpixel((18, 5), colorsDict["typeDevilHorns"])
-        imNew.putpixel((19, 5), colorsDict["black"])
+        # imNew.putpixel((4, 5), colorsDict["black"])
+        # imNew.putpixel((5, 5), colorsDict["typeDevilHorns"])
+        # imNew.putpixel((6, 5), colorsDict["black"])
+        # imNew.putpixel((17, 5), colorsDict["black"])
+        # imNew.putpixel((18, 5), colorsDict["typeDevilHorns"])
+        # imNew.putpixel((19, 5), colorsDict["black"])
 
-        imNew.putpixel((4, 6), colorsDict["black"])
-        imNew.putpixel((5, 6), colorsDict["typeDevilHorns"])
-        imNew.putpixel((6, 6), colorsDict["black"])
-        imNew.putpixel((7, 6), colorsDict["black"])
-        imNew.putpixel((16, 6), colorsDict["black"])
-        imNew.putpixel((17, 6), colorsDict["black"])
-        imNew.putpixel((18, 6), colorsDict["typeDevilHorns"])
-        imNew.putpixel((19, 6), colorsDict["black"])
+        # imNew.putpixel((4, 6), colorsDict["black"])
+        # imNew.putpixel((5, 6), colorsDict["typeDevilHorns"])
+        # imNew.putpixel((6, 6), colorsDict["black"])
+        # imNew.putpixel((7, 6), colorsDict["black"])
+        # imNew.putpixel((16, 6), colorsDict["black"])
+        # imNew.putpixel((17, 6), colorsDict["black"])
+        # imNew.putpixel((18, 6), colorsDict["typeDevilHorns"])
+        # imNew.putpixel((19, 6), colorsDict["black"])
 
-        imNew.putpixel((4, 7), colorsDict["black"])
-        imNew.putpixel((5, 7), colorsDict["typeDevilHorns"])
-        imNew.putpixel((6, 7), colorsDict["typeDevilHorns"])
-        imNew.putpixel((7, 7), colorsDict["black"])
-        imNew.putpixel((8, 7), colorsDict["black"])
-        imNew.putpixel((10, 7), colorsDict["black"])
-        imNew.putpixel((11, 7), colorsDict["black"])
-        imNew.putpixel((12, 7), colorsDict["black"])
-        imNew.putpixel((13, 7), colorsDict["black"])
-        imNew.putpixel((15, 7), colorsDict["black"])
-        imNew.putpixel((16, 7), colorsDict["black"])
-        imNew.putpixel((17, 7), colorsDict["typeDevilHorns"])
-        imNew.putpixel((18, 7), colorsDict["typeDevilHorns"])
-        imNew.putpixel((19, 7), colorsDict["black"])
+        # imNew.putpixel((4, 7), colorsDict["black"])
+        # imNew.putpixel((5, 7), colorsDict["typeDevilHorns"])
+        # imNew.putpixel((6, 7), colorsDict["typeDevilHorns"])
+        # imNew.putpixel((7, 7), colorsDict["black"])
+        # imNew.putpixel((8, 7), colorsDict["black"])
+        # imNew.putpixel((10, 7), colorsDict["black"])
+        # imNew.putpixel((11, 7), colorsDict["black"])
+        # imNew.putpixel((12, 7), colorsDict["black"])
+        # imNew.putpixel((13, 7), colorsDict["black"])
+        # imNew.putpixel((15, 7), colorsDict["black"])
+        # imNew.putpixel((16, 7), colorsDict["black"])
+        # imNew.putpixel((17, 7), colorsDict["typeDevilHorns"])
+        # imNew.putpixel((18, 7), colorsDict["typeDevilHorns"])
+        # imNew.putpixel((19, 7), colorsDict["black"])
 
-        imNew.putpixel((5, 8), colorsDict["black"])
-        imNew.putpixel((6, 8), colorsDict["typeDevilHorns"])
-        imNew.putpixel((7, 8), colorsDict["typeDevilHorns"])
-        imNew.putpixel((8, 8), colorsDict["black"])
-        imNew.putpixel((15, 8), colorsDict["black"])
-        imNew.putpixel((16, 8), colorsDict["typeDevilHorns"])
-        imNew.putpixel((17, 8), colorsDict["typeDevilHorns"])
-        imNew.putpixel((18, 8), colorsDict["black"])
+        # imNew.putpixel((5, 8), colorsDict["black"])
+        # imNew.putpixel((6, 8), colorsDict["typeDevilHorns"])
+        # imNew.putpixel((7, 8), colorsDict["typeDevilHorns"])
+        # imNew.putpixel((8, 8), colorsDict["black"])
+        # imNew.putpixel((15, 8), colorsDict["black"])
+        # imNew.putpixel((16, 8), colorsDict["typeDevilHorns"])
+        # imNew.putpixel((17, 8), colorsDict["typeDevilHorns"])
+        # imNew.putpixel((18, 8), colorsDict["black"])
 
-        imNew.putpixel((5, 9), backgroundLookup[backgroundColor])
-        imNew.putpixel((6, 9), colorsDict["black"])
-        imNew.putpixel((17, 9), colorsDict["black"])
-        imNew.putpixel((18, 9), backgroundLookup[backgroundColor])
+        # imNew.putpixel((5, 9), backgroundLookup[backgroundColor])
+        # imNew.putpixel((6, 9), colorsDict["black"])
+        # imNew.putpixel((17, 9), colorsDict["black"])
+        # imNew.putpixel((18, 9), backgroundLookup[backgroundColor])
 
-        imNew.putpixel((10, 11), colorsDict["typeDevilMarks"])
-        imNew.putpixel((13, 11), colorsDict["typeDevilMarks"])
+        imNew.putpixel((10, 9), colorsDict["black"])
+        imNew.putpixel((21, 9), colorsDict["black"])
 
-        imNew.putpixel((8, 12), colorsDict["typeDevilEyes"])
-        imNew.putpixel((14, 12), colorsDict["typeDevilEyes"])
+        imNew.putpixel((9, 10), colorsDict["black"])
+        imNew.putpixel((10, 10), colorsDict["typeDevilHornTip"])
+        imNew.putpixel((11, 10), colorsDict["black"])
+        imNew.putpixel((20, 10), colorsDict["black"])
+        imNew.putpixel((21, 10), colorsDict["typeDevilHornTip"])
+        imNew.putpixel((22, 10), colorsDict["black"])
+
+        imNew.putpixel((9, 11), colorsDict["black"])
+        imNew.putpixel((10, 11), colorsDict["typeDevilHorns"])
+        imNew.putpixel((11, 11), colorsDict["typeDevilHorns"])
+        imNew.putpixel((20, 11), colorsDict["typeDevilHorns"])
+        imNew.putpixel((21, 11), colorsDict["typeDevilHorns"])
+        imNew.putpixel((22, 11), colorsDict["black"])
+
+        imNew.putpixel((9, 12), colorsDict["black"])
+        imNew.putpixel((10, 12), colorsDict["typeDevilHorns"])
+        imNew.putpixel((21, 12), colorsDict["typeDevilHorns"])
+        imNew.putpixel((22, 12), colorsDict["black"])
+
+        # imNew.putpixel((14, 14), colorsDict["typeDevilMarks"])
+        # imNew.putpixel((17, 14), colorsDict["typeDevilMarks"])
+
+        imNew.putpixel((12, 15), colorsDict["typeDevilEyes"])
+        imNew.putpixel((18, 15), colorsDict["typeDevilEyes"])
 
         # Overwrite tail
 
-        imNew.putpixel((0, 17), colorsDict["black"])
-        imNew.putpixel((1, 17), colorsDict["black"])
-        imNew.putpixel((2, 17), colorsDict["black"])
-        imNew.putpixel((3, 17), colorsDict["black"])
+        # imNew.putpixel((0, 17), colorsDict["black"])
+        # imNew.putpixel((1, 17), colorsDict["black"])
+        # imNew.putpixel((2, 17), colorsDict["black"])
+        # imNew.putpixel((3, 17), colorsDict["black"])
 
-        imNew.putpixel((0, 18), colorsDict["typeDevil"])
-        imNew.putpixel((1, 18), colorsDict["typeDevil"])
-        imNew.putpixel((2, 18), colorsDict["typeDevilShade"])
-        imNew.putpixel((3, 18), colorsDict["black"])
+        # imNew.putpixel((0, 18), colorsDict["typeDevil"])
+        # imNew.putpixel((1, 18), colorsDict["typeDevil"])
+        # imNew.putpixel((2, 18), colorsDict["typeDevilShade"])
+        # imNew.putpixel((3, 18), colorsDict["black"])
 
-        imNew.putpixel((0, 19), colorsDict["black"])
-        imNew.putpixel((1, 19), colorsDict["typeDevilShade"])
-        imNew.putpixel((2, 19), colorsDict["typeDevil"])
-        imNew.putpixel((3, 19), colorsDict["black"])
+        # imNew.putpixel((0, 19), colorsDict["black"])
+        # imNew.putpixel((1, 19), colorsDict["typeDevilShade"])
+        # imNew.putpixel((2, 19), colorsDict["typeDevil"])
+        # imNew.putpixel((3, 19), colorsDict["black"])
 
-        imNew.putpixel((1, 20), colorsDict["black"])
-        imNew.putpixel((2, 20), colorsDict["typeDevil"])
-        imNew.putpixel((3, 20), colorsDict["black"])
+        # imNew.putpixel((1, 20), colorsDict["black"])
+        # imNew.putpixel((2, 20), colorsDict["typeDevil"])
+        # imNew.putpixel((3, 20), colorsDict["black"])
 
-        imNew.putpixel((2, 21), colorsDict["black"])
-        imNew.putpixel((3, 21), colorsDict["black"])
+        # imNew.putpixel((2, 21), colorsDict["black"])
+        # imNew.putpixel((3, 21), colorsDict["black"])
     elif decodedType == "AstroDoge":
         primaryColor = "typeNormal"
         colorShade = "typeNormalShade"
