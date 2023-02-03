@@ -62,7 +62,8 @@ def main():
         dupesRetry = 0
     
 def isDrawShadow(traits):
-    if traits[2] in ["k", "o"]:
+    # Body / Environment
+    if traits[2] in ["k", "o", "e", "h"]:
         return False
     return True
 
